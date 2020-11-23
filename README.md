@@ -61,3 +61,31 @@ We want to see how you handle:
 - Messy (ie real) data
 - Understanding data transformation
 This is not a pass or fail test, we want to hear about your challenges and your successes with this particular problem.
+
+---
+## Useful notes regarding challenge:
+1. I decided at first to 'look' at provided data and to identify possible issues. 
+For that case, i used jupyter notebook and pandas lib, it's really 
+straightforward and quick-to-use functionality.
+2. As a result of the previous point I came up with a decision to preprocess data, specifically:
+    - to change the file format to csv, cause it's much handier
+    - to sort data depend on the time column, it's necessary for sessionization
+    - to remove columns, which will not take part in further transformations for sure
+3. Corresponding  Jupyter notebook you can find in **jnotebook** folder
+4. Concise python script for preprocessing data you can find in **pyscript** folder
+   Prerequisites:
+    - python 3.8.6
+    - pandas 1.1.4
+5. To run corresponding python script just run following command from console:
+
+    `python pyscript\preprocess_data.py filepath_to_initail_data filepath_to_edited_data`
+6. For processing data by sessions i used spark structured streaming and then for 
+achieving analytical goals from challenge used spark SQL and sql itself.
+
+7. I've run spark job locally, inside IDE that i am using - Intellij IDEA with 
+preconfigured installed spark on mu workstation(just simple local installation)
+To run spark from cmd :
+
+    `mvn clean install`
+    
+    `spark-submit  target\DataEngineerChallenge-1.0-SNAPSHOT-spring-boot.jar csv\`
